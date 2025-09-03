@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Overview - AI-Driven ChatBOT for INGRES</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fingrescha3217back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background font-body text-text-primary">
+    <!-- Navigation Header -->
+    <nav class="bg-surface shadow-hydro-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="28" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-lg font-heading font-semibold text-primary">INGRES ChatBOT</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Home</a>
+                        <a href="project_overview.html" class="bg-primary-100 text-primary px-3 py-2 rounded-md text-sm font-medium">Overview</a>
+                        <a href="pseudocode_display.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Pseudocode</a>
+                        <a href="live_chat_interface.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Live Chat</a>
+                        <a href="team_profiles.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Team</a>
+                        <a href="contact_form.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="bg-surface inline-flex items-center justify-center p-2 rounded-md text-text-secondary hover:text-primary hover:bg-primary-50 focus-hydro" id="mobile-menu-button">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface border-t border-border">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Home</a>
+                <a href="project_overview.html" class="bg-primary-100 text-primary block px-3 py-2 rounded-md text-base font-medium">Overview</a>
+                <a href="pseudocode_display.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Pseudocode</a>
+                <a href="live_chat_interface.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Live Chat</a>
+                <a href="team_profiles.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Team</a>
+                <a href="contact_form.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <section class="bg-primary-50 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="homepage.html" class="inline-flex items-center text-sm font-medium text-text-secondary hover:text-primary transition-smooth">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="ml-1 text-sm font-medium text-primary md:ml-2">Project Overview</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Page Header -->
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-heading font-bold text-text-primary mb-6">
+                    Understanding <span class="text-primary">INGRES</span>
+                </h1>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+                    Explore the scientific workflow and groundwater management challenges that drive our AI-powered solution for India's water resource professionals.
+                </p>
+            </div>
+
+            <!-- Two-Column Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <!-- Left Column - Main Content -->
+                <div class="space-y-8">
+                    <!-- INGRES System Overview -->
+                    <div class="bg-surface rounded-2xl p-8 shadow-hydro-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-heading font-bold text-text-primary">What is INGRES?</h2>
+                        </div>
+                        <p class="text-text-secondary leading-relaxed mb-4">
+                            INGRES (Integrated Groundwater Resource Evaluation System) is India's comprehensive scientific framework for assessing and managing groundwater resources across diverse geological and climatic conditions.
+                        </p>
+                        <p class="text-text-secondary leading-relaxed mb-6">
+                            The system integrates hydrogeological surveys, geophysical investigations, and water quality assessments to provide actionable insights for sustainable groundwater management at national, state, and local levels.
+                        </p>
+                        
+                        <!-- Expandable Technical Details -->
+                        <div class="border border-border rounded-xl overflow-hidden">
+                            <button class="w-full px-6 py-4 bg-primary-50 text-left flex items-center justify-between hover:bg-primary-100 transition-smooth" onclick="toggleSection('technical-details')">
+                                <span class="font-semibold text-primary">Technical Methodology</span>
+                                <svg class="w-5 h-5 text-primary transform transition-transform" id="technical-details-icon">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <div class="hidden px-6 py-4 bg-surface" id="technical-details-content">
+                                <ul class="space-y-3 text-text-secondary">
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span><strong>Hydrogeological Mapping:</strong> Detailed aquifer characterization using geological surveys and borehole data analysis</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-secondary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span><strong>Geophysical Investigations:</strong> Electrical resistivity and seismic surveys for subsurface water detection</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-accent rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span><strong>Water Quality Assessment:</strong> Chemical and biological analysis following BIS standards</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="w-2 h-2 bg-warning rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                        <span><strong>Data Integration:</strong> GIS-based spatial analysis and modeling for resource estimation</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Groundwater Challenges in India -->
+                    <div class="bg-surface rounded-2xl p-8 shadow-hydro-lg">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-warning-100 rounded-xl flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-heading font-bold text-text-primary">Critical Challenges</h2>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-error-50 border-l-4 border-error p-4 rounded-r-lg">
+                                <h3 class="font-semibold text-error mb-2">Over-exploitation Crisis</h3>
+                                <p class="text-text-secondary text-sm">Over 60% of India's groundwater blocks are experiencing declining water levels due to excessive extraction for agriculture and urban needs.</p>
+                            </div>
+                            <div class="bg-warning-50 border-l-4 border-warning p-4 rounded-r-lg">
+                                <h3 class="font-semibold text-warning mb-2">Data Accessibility Gap</h3>
+                                <p class="text-text-secondary text-sm">Complex scientific data remains inaccessible to field professionals, limiting effective decision-making at the grassroots level.</p>
+                            </div>
+                            <div class="bg-secondary-50 border-l-4 border-secondary p-4 rounded-r-lg">
+                                <h3 class="font-semibold text-secondary mb-2">Regional Variations</h3>
+                                <p class="text-text-secondary text-sm">Diverse geological conditions across states require localized assessment approaches and region-specific solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Visual Content -->
+                <div class="space-y-8">
+                    <!-- Workflow Diagram -->
+                    <div class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 shadow-hydro-lg">
+                        <h3 class="text-xl font-heading font-bold text-text-primary mb-6 text-center">INGRES Scientific Workflow</h3>
+                        <div class="space-y-6">
+                            <!-- Step 1 -->
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">1</div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Data Collection</h4>
+                                    <p class="text-sm text-text-secondary">Field surveys, borehole data, satellite imagery</p>
+                                </div>
+                            </div>
+                            <div class="ml-5 border-l-2 border-primary-200 h-6"></div>
+                            
+                            <!-- Step 2 -->
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">2</div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Analysis & Processing</h4>
+                                    <p class="text-sm text-text-secondary">Geospatial analysis, quality assessment</p>
+                                </div>
+                            </div>
+                            <div class="ml-5 border-l-2 border-secondary-200 h-6"></div>
+                            
+                            <!-- Step 3 -->
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">3</div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">AI Integration</h4>
+                                    <p class="text-sm text-text-secondary">Machine learning models, pattern recognition</p>
+                                </div>
+                            </div>
+                            <div class="ml-5 border-l-2 border-accent-200 h-6"></div>
+                            
+                            <!-- Step 4 -->
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-warning rounded-full flex items-center justify-center text-white font-bold mr-4 flex-shrink-0">4</div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary">Accessible Delivery</h4>
+                                    <p class="text-sm text-text-secondary">Conversational AI, simplified reports</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Visualization Example -->
+                    <div class="bg-surface rounded-2xl p-8 shadow-hydro-lg">
+                        <h3 class="text-xl font-heading font-bold text-text-primary mb-6 text-center">Groundwater Data Visualization</h3>
+                        <div class="relative h-64 bg-gradient-to-b from-accent-100 via-primary-200 to-primary-400 rounded-xl overflow-hidden">
+                            <!-- Map of India Outline -->
+                            <div class="absolute inset-4 bg-surface rounded-lg shadow-hydro p-4">
+                                <div class="h-full relative">
+                                    <!-- Sample Data Points -->
+                                    <div class="absolute top-4 left-8 w-3 h-3 bg-success rounded-full animate-pulse-subtle"></div>
+                                    <div class="absolute top-12 right-12 w-3 h-3 bg-warning rounded-full animate-pulse-subtle" style="animation-delay: 0.5s;"></div>
+                                    <div class="absolute bottom-16 left-16 w-3 h-3 bg-error rounded-full animate-pulse-subtle" style="animation-delay: 1s;"></div>
+                                    <div class="absolute bottom-8 right-8 w-3 h-3 bg-primary rounded-full animate-pulse-subtle" style="animation-delay: 1.5s;"></div>
+                                    
+                                    <!-- Legend -->
+                                    <div class="absolute bottom-2 left-2 bg-surface rounded-lg p-2 shadow-hydro text-xs">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="flex items-center">
+                                                <div class="w-2 h-2 bg-success rounded-full mr-1"></div>
+                                                <span>Safe</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <div class="w-2 h-2 bg-warning rounded-full mr-1"></div>
+                                                <span>Semi-critical</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <div class="w-2 h-2 bg-error rounded-full mr-1"></div>
+                                                <span>Critical</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-text-secondary text-center mt-4">
+                            Real-time groundwater status across Indian states with AI-powered trend analysis
+                        </p>
+                    </div>
+
+                    <!-- Key Statistics -->
+                    <div class="bg-surface rounded-2xl p-8 shadow-hydro-lg">
+                        <h3 class="text-xl font-heading font-bold text-text-primary mb-6 text-center">Impact Statistics</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-primary mb-2">28</div>
+                                <div class="text-sm text-text-secondary">States Covered</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-secondary mb-2">5,000+</div>
+                                <div class="text-sm text-text-secondary">Data Points</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-accent mb-2">85%</div>
+                                <div class="text-sm text-text-secondary">Accuracy Rate</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-warning mb-2">24/7</div>
+                                <div class="text-sm text-text-secondary">AI Availability</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Integration Benefits -->
+            <div class="bg-gradient-to-r from-primary-50 via-secondary-50 to-accent-50 rounded-3xl p-12 mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-4">
+                        How AI Transforms <span class="text-primary">INGRES</span>
+                    </h2>
+                    <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                        Our intelligent chatbot bridges the gap between complex scientific data and practical field applications.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Benefit 1 -->
+                    <div class="bg-surface rounded-2xl p-6 shadow-hydro hover-lift transition-smooth">
+                        <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-text-primary mb-3 text-center">Natural Language Queries</h3>
+                        <p class="text-text-secondary text-center">
+                            Ask complex groundwater questions in simple English and receive instant, contextual responses based on INGRES data.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 2 -->
+                    <div class="bg-surface rounded-2xl p-6 shadow-hydro hover-lift transition-smooth">
+                        <div class="w-16 h-16 bg-secondary-100 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-text-primary mb-3 text-center">Real-time Analysis</h3>
+                        <p class="text-text-secondary text-center">
+                            Get instant insights from vast datasets with AI-powered pattern recognition and trend analysis capabilities.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div class="bg-surface rounded-2xl p-6 shadow-hydro hover-lift transition-smooth">
+                        <div class="w-16 h-16 bg-accent-100 rounded-2xl flex items-center justify-center mb-4 mx-auto">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-text-primary mb-3 text-center">Actionable Recommendations</h3>
+                        <p class="text-text-secondary text-center">
+                            Receive specific, location-based recommendations for groundwater management and conservation strategies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-world Applications -->
+            <div class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-primary mb-4">
+                        Real-world Applications
+                    </h2>
+                    <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                        Discover how water resource professionals across India are leveraging our AI-powered insights.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Application 1 -->
+                    <div class="bg-surface rounded-2xl p-8 shadow-hydro-lg hover-lift transition-smooth">
+                        <div class="flex items-start mb-6">
+                            <img src="https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Agricultural groundwater management" class="w-16 h-16 rounded-xl object-cover mr-4 flex-shrink-0" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <div>
+                                <h3 class="text-xl font-heading font-semibold text-text-primary mb-2">Agricultural Planning</h3>
+                                <p class="text-text-secondary">
+                                    Farmers and agricultural officers use our chatbot to assess groundwater availability for crop planning and irrigation scheduling.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-primary-50 rounded-lg p-4">
+                            <p class="text-sm text-primary font-medium">
+                                "Is groundwater suitable for wheat cultivation in Haryana's Karnal district this season?"
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Application 2 -->
+                    <div class="bg-surface rounded-2xl p-8 shadow-hydro-lg hover-lift transition-smooth">
+                        <div class="flex items-start mb-6">
+                            <img src="https://images.pixabay.com/photo/2016/11/29/06/15/water-1867968_960_720.jpg" alt="Urban water supply planning" class="w-16 h-16 rounded-xl object-cover mr-4 flex-shrink-0" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <div>
+                                <h3 class="text-xl font-heading font-semibold text-text-primary mb-2">Urban Water Supply</h3>
+                                <p class="text-text-secondary">
+                                    Municipal authorities leverage AI insights for sustainable water supply planning and infrastructure development.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-secondary-50 rounded-lg p-4">
+                            <p class="text-sm text-secondary font-medium">
+                                "What's the groundwater potential for new residential development in Pune's eastern suburbs?"
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Application 3 -->
+                    <div class="bg-surface rounded-2xl p-8 shadow-hydro-lg hover-lift transition-smooth">
+                        <div class="flex items-start mb-6">
+                            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=400&q=80" alt="Research and monitoring" class="w-16 h-16 rounded-xl object-cover mr-4 flex-shrink-0" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <div>
+                                <h3 class="text-xl font-heading font-semibold text-text-primary mb-2">Research & Monitoring</h3>
+                                <p class="text-text-secondary">
+                                    Researchers and environmental scientists access comprehensive data for groundwater studies and policy recommendations.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-accent-50 rounded-lg p-4">
+                            <p class="text-sm text-accent font-medium">
+                                "Show me groundwater depletion trends in Gujarat's Mehsana district over the past decade."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Application 4 -->
+                    <div class="bg-surface rounded-2xl p-8 shadow-hydro-lg hover-lift transition-smooth">
+                        <div class="flex items-start mb-6">
+                            <img src="https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Policy and governance" class="w-16 h-16 rounded-xl object-cover mr-4 flex-shrink-0" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            <div>
+                                <h3 class="text-xl font-heading font-semibold text-text-primary mb-2">Policy & Governance</h3>
+                                <p class="text-text-secondary">
+                                    Government officials and policymakers use data-driven insights for evidence-based water resource governance.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-warning-50 rounded-lg p-4">
+                            <p class="text-sm text-warning font-medium">
+                                "Which districts in Rajasthan require immediate groundwater conservation interventions?"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center bg-gradient-to-r from-primary to-secondary rounded-3xl p-12 text-white">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">
+                    Ready to Experience AI-Powered Groundwater Insights?
+                </h2>
+                <p class="text-xl mb-8 opacity-90">
+                    Start your conversation with our intelligent chatbot and discover how INGRES data can transform your water resource decisions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="live_chat_interface.html" class="bg-white text-primary px-8 py-4 rounded-xl text-lg font-semibold shadow-hydro-lg hover-lift transition-smooth flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                        Start Live Chat
+                    </a>
+                    <a href="pseudocode_display.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-white hover:text-primary transition-smooth">
+                        View System Logic
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Logo and Description -->
+                <div class="col-span-1">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary-300" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="28" r="2" fill="currentColor"/>
+                        </svg>
+                        <span class="ml-2 text-xl font-heading font-semibold">INGRES ChatBOT</span>
+                    </div>
+                    <p class="text-primary-200 text-sm leading-relaxed">
+                        Empowering groundwater management in India through intelligent AI-driven conversations and data insights.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-heading font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="project_overview.html" class="text-primary-200 hover:text-white transition-smooth">Project Overview</a></li>
+                        <li><a href="live_chat_interface.html" class="text-primary-200 hover:text-white transition-smooth">Live Chat</a></li>
+                        <li><a href="team_profiles.html" class="text-primary-200 hover:text-white transition-smooth">Our Team</a></li>
+                        <li><a href="contact_form.html" class="text-primary-200 hover:text-white transition-smooth">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-heading font-semibold mb-4">Connect With Us</h3>
+                    <div class="space-y-2">
+                        <p class="text-primary-200 text-sm">
+                            <span class="font-medium">Email:</span> info@ingres-chatbot.in
+                        </p>
+                        <p class="text-primary-200 text-sm">
+                            <span class="font-medium">Research:</span> groundwater@ingres.gov.in
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-8 pt-8 text-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 INGRES ChatBOT. All Rights Reserved. | Advancing Groundwater Management in India
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Toggle expandable sections
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId + '-content');
+            const icon = document.getElementById(sectionId + '-icon');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.hover-lift').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

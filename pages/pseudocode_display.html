@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudocode Display - INGRES ChatBOT System Logic</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fingrescha3217back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background font-body text-text-primary">
+    <!-- Navigation Header -->
+    <nav class="bg-surface shadow-hydro-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="28" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-lg font-heading font-semibold text-primary">INGRES ChatBOT</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Home</a>
+                        <a href="project_overview.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Overview</a>
+                        <a href="pseudocode_display.html" class="bg-primary-100 text-primary px-3 py-2 rounded-md text-sm font-medium">Pseudocode</a>
+                        <a href="live_chat_interface.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Live Chat</a>
+                        <a href="team_profiles.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Team</a>
+                        <a href="contact_form.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="bg-surface inline-flex items-center justify-center p-2 rounded-md text-text-secondary hover:text-primary hover:bg-primary-50 focus-hydro" id="mobile-menu-button">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface border-t border-border">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Home</a>
+                <a href="project_overview.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Overview</a>
+                <a href="pseudocode_display.html" class="bg-primary-100 text-primary block px-3 py-2 rounded-md text-base font-medium">Pseudocode</a>
+                <a href="live_chat_interface.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Live Chat</a>
+                <a href="team_profiles.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Team</a>
+                <a href="contact_form.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-primary mb-4">
+                    System <span class="text-primary">Pseudocode</span>
+                </h1>
+                <p class="text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+                    Explore the detailed algorithmic logic powering the INGRES ChatBOT system, from query processing to intelligent response generation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-8 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Navigation Panel -->
+                <div class="lg:w-1/4">
+                    <div class="bg-surface border border-border rounded-2xl p-6 shadow-hydro sticky top-24">
+                        <!-- Search Functionality -->
+                        <div class="mb-6">
+                            <div class="relative">
+                                <input type="text" id="code-search" placeholder="Search functions..." class="w-full pl-10 pr-4 py-2 border border-border rounded-lg focus-hydro text-sm" />
+                                <svg class="absolute left-3 top-2.5 h-4 w-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Quick Navigation -->
+                        <div class="space-y-2">
+                            <h3 class="text-lg font-heading font-semibold text-text-primary mb-4">Algorithm Components</h3>
+                            <a href="#main-flow" class="block px-3 py-2 text-sm text-text-secondary hover:text-primary hover:bg-primary-50 rounded-md transition-smooth">Main Flow</a>
+                            <a href="#input-validation" class="block px-3 py-2 text-sm text-text-secondary hover:text-primary hover:bg-primary-50 rounded-md transition-smooth">Input Validation</a>
+                            <a href="#query-parsing" class="block px-3 py-2 text-sm text-text-secondary hover:text-primary hover:bg-primary-50 rounded-md transition-smooth">Query Parsing</a>
+                            <a href="#data-retrieval" class="block px-3 py-2 text-sm text-text-secondary hover:text-primary hover:bg-primary-50 rounded-md transition-smooth">Data Retrieval</a>
+                            <a href="#ai-processing" class="block px-3 py-2 text-sm text-text-secondary hover:text-primary hover:bg-primary-50 rounded-md transition-smooth">AI Processing</a>
+                            <a href="#response-generation" class="block px-3 py-2 text-sm text-text-secondary hover:text-primary hover:bg-primary-50 rounded-md transition-smooth">Response Generation</a>
+                            <a href="#output-formatting" class="block px-3 py-2 text-sm text-text-secondary hover:text-primary hover:bg-primary-50 rounded-md transition-smooth">Output Formatting</a>
+                            <a href="#error-handling" class="block px-3 py-2 text-sm text-text-secondary hover:text-primary hover:bg-primary-50 rounded-md transition-smooth">Error Handling</a>
+                        </div>
+
+                        <!-- Mobile Toggle Button -->
+                        <button id="nav-toggle" class="lg:hidden w-full mt-4 bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium">
+                            Toggle Navigation
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Code Display Area -->
+                <div class="lg:w-3/4">
+                    <div class="space-y-8">
+                        <!-- Main Flow Section -->
+                        <div id="main-flow" class="bg-surface border border-border rounded-2xl shadow-hydro overflow-hidden">
+                            <div class="bg-gradient-to-r from-primary-50 to-secondary-50 px-6 py-4 border-b border-border">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-xl font-heading font-semibold text-text-primary flex items-center">
+                                        <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                        </svg>
+                                        Main ChatBOT Flow
+                                    </h2>
+                                    <button class="copy-btn bg-primary-100 hover:bg-primary-200 text-primary px-3 py-1 rounded-md text-sm font-medium transition-smooth" data-target="main-flow-code">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <pre id="main-flow-code" class="font-mono text-sm bg-background p-4 rounded-lg overflow-x-auto border border-border-light"><code class="language-pseudocode"><span class="text-accent-600 font-semibold">ALGORITHM</span> <span class="text-primary-700">INGRES_ChatBOT_Main_Flow</span>
+<span class="text-secondary-600">// Main entry point for INGRES ChatBOT system</span>
+
+<span class="text-warning-600">BEGIN</span>
+    <span class="text-accent-600">INITIALIZE</span> system_components
+    <span class="text-accent-600">LOAD</span> INGRES_database_connection
+    <span class="text-accent-600">LOAD</span> AI_model_configuration
+    
+    <span class="text-warning-600">WHILE</span> system_active <span class="text-warning-600">DO</span>
+        user_input ← <span class="text-accent-600">RECEIVE_USER_QUERY</span>()
+        
+        <span class="text-warning-600">IF</span> user_input <span class="text-warning-600">IS NOT</span> empty <span class="text-warning-600">THEN</span>
+            validated_input ← <span class="text-primary-700">VALIDATE_INPUT</span>(user_input)
+            
+            <span class="text-warning-600">IF</span> validated_input <span class="text-warning-600">IS</span> valid <span class="text-warning-600">THEN</span>
+                parsed_query ← <span class="text-primary-700">PARSE_QUERY</span>(validated_input)
+                relevant_data ← <span class="text-primary-700">RETRIEVE_DATA</span>(parsed_query)
+                ai_response ← <span class="text-primary-700">PROCESS_WITH_AI</span>(parsed_query, relevant_data)
+                formatted_response ← <span class="text-primary-700">FORMAT_RESPONSE</span>(ai_response)
+                
+                <span class="text-accent-600">DISPLAY</span> formatted_response
+                <span class="text-accent-600">LOG</span> interaction_data
+            <span class="text-warning-600">ELSE</span>
+                <span class="text-primary-700">HANDLE_VALIDATION_ERROR</span>(user_input)
+            <span class="text-warning-600">END IF</span>
+        <span class="text-warning-600">END IF</span>
+        
+        <span class="text-accent-600">WAIT</span> for_next_input
+    <span class="text-warning-600">END WHILE</span>
+<span class="text-warning-600">END</span></code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Input Validation Section -->
+                        <div id="input-validation" class="bg-surface border border-border rounded-2xl shadow-hydro overflow-hidden">
+                            <div class="bg-gradient-to-r from-secondary-50 to-accent-50 px-6 py-4 border-b border-border">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-xl font-heading font-semibold text-text-primary flex items-center">
+                                        <svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        Input Validation
+                                    </h2>
+                                    <button class="copy-btn bg-secondary-100 hover:bg-secondary-200 text-secondary px-3 py-1 rounded-md text-sm font-medium transition-smooth" data-target="validation-code">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <pre id="validation-code" class="font-mono text-sm bg-background p-4 rounded-lg overflow-x-auto border border-border-light"><code class="language-pseudocode"><span class="text-accent-600 font-semibold">FUNCTION</span> <span class="text-primary-700">VALIDATE_INPUT</span>(user_input)
+<span class="text-secondary-600">// Validates and sanitizes user input for security and processing</span>
+
+<span class="text-warning-600">BEGIN</span>
+    <span class="text-secondary-600">// Basic input checks</span>
+    <span class="text-warning-600">IF</span> user_input <span class="text-warning-600">IS</span> null <span class="text-warning-600">OR</span> empty <span class="text-warning-600">THEN</span>
+        <span class="text-warning-600">RETURN</span> <span class="text-error-600">INVALID</span>("Empty input not allowed")
+    <span class="text-warning-600">END IF</span>
+    
+    <span class="text-secondary-600">// Length validation</span>
+    <span class="text-warning-600">IF</span> LENGTH(user_input) > <span class="text-accent-600">1000</span> <span class="text-warning-600">THEN</span>
+        <span class="text-warning-600">RETURN</span> <span class="text-error-600">INVALID</span>("Query too long")
+    <span class="text-warning-600">END IF</span>
+    
+    <span class="text-secondary-600">// Security sanitization</span>
+    sanitized_input ← <span class="text-primary-700">REMOVE_MALICIOUS_PATTERNS</span>(user_input)
+    sanitized_input ← <span class="text-primary-700">ESCAPE_SPECIAL_CHARACTERS</span>(sanitized_input)
+    
+    <span class="text-secondary-600">// Content validation</span>
+    <span class="text-warning-600">IF</span> <span class="text-primary-700">CONTAINS_GROUNDWATER_KEYWORDS</span>(sanitized_input) <span class="text-warning-600">THEN</span>
+        validation_result ← {
+            status: <span class="text-success-600">VALID</span>,
+            sanitized_input: sanitized_input,
+            confidence: <span class="text-primary-700">CALCULATE_RELEVANCE_SCORE</span>(sanitized_input)
+        }
+    <span class="text-warning-600">ELSE</span>
+        validation_result ← {
+            status: <span class="text-warning-600">WARNING</span>,
+            sanitized_input: sanitized_input,
+            message: "Query may not be groundwater-related"
+        }
+    <span class="text-warning-600">END IF</span>
+    
+    <span class="text-warning-600">RETURN</span> validation_result
+<span class="text-warning-600">END</span></code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Query Parsing Section -->
+                        <div id="query-parsing" class="bg-surface border border-border rounded-2xl shadow-hydro overflow-hidden">
+                            <div class="bg-gradient-to-r from-accent-50 to-primary-50 px-6 py-4 border-b border-border">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-xl font-heading font-semibold text-text-primary flex items-center">
+                                        <svg class="w-5 h-5 text-accent mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                        </svg>
+                                        Query Parsing & Analysis
+                                    </h2>
+                                    <button class="copy-btn bg-accent-100 hover:bg-accent-200 text-accent px-3 py-1 rounded-md text-sm font-medium transition-smooth" data-target="parsing-code">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <pre id="parsing-code" class="font-mono text-sm bg-background p-4 rounded-lg overflow-x-auto border border-border-light"><code class="language-pseudocode"><span class="text-accent-600 font-semibold">FUNCTION</span> <span class="text-primary-700">PARSE_QUERY</span>(validated_input)
+<span class="text-secondary-600">// Extracts intent, entities, and parameters from user query</span>
+
+<span class="text-warning-600">BEGIN</span>
+    <span class="text-secondary-600">// Initialize parsing components</span>
+    nlp_processor ← <span class="text-accent-600">INITIALIZE_NLP_ENGINE</span>()
+    entity_extractor ← <span class="text-accent-600">LOAD_GROUNDWATER_ENTITIES</span>()
+    
+    <span class="text-secondary-600">// Intent classification</span>
+    query_intent ← <span class="text-primary-700">CLASSIFY_INTENT</span>(validated_input)
+    <span class="text-secondary-600">// Possible intents: DATA_QUERY, ANALYSIS_REQUEST, COMPARISON, PREDICTION</span>
+    
+    <span class="text-secondary-600">// Entity extraction</span>
+    extracted_entities ← <span class="text-primary-700">EXTRACT_ENTITIES</span>(validated_input)
+    <span class="text-secondary-600">// Entities: location, depth, water_quality_parameter, time_period</span>
+    
+    <span class="text-secondary-600">// Parameter identification</span>
+    query_parameters ← {}
+    
+    <span class="text-warning-600">FOR EACH</span> entity <span class="text-warning-600">IN</span> extracted_entities <span class="text-warning-600">DO</span>
+        <span class="text-warning-600">SWITCH</span> entity.type
+            <span class="text-warning-600">CASE</span> "LOCATION":
+                query_parameters.location ← <span class="text-primary-700">NORMALIZE_LOCATION</span>(entity.value)
+                query_parameters.coordinates ← <span class="text-primary-700">GET_COORDINATES</span>(entity.value)
+            
+            <span class="text-warning-600">CASE</span> "DEPTH":
+                query_parameters.depth_range ← <span class="text-primary-700">PARSE_DEPTH_RANGE</span>(entity.value)
+            
+            <span class="text-warning-600">CASE</span> "WATER_QUALITY":
+                query_parameters.quality_params ← <span class="text-primary-700">MAP_QUALITY_PARAMETERS</span>(entity.value)
+            
+            <span class="text-warning-600">CASE</span> "TIME_PERIOD":
+                query_parameters.time_range ← <span class="text-primary-700">PARSE_TIME_RANGE</span>(entity.value)
+        <span class="text-warning-600">END SWITCH</span>
+    <span class="text-warning-600">END FOR</span>
+    
+    <span class="text-secondary-600">// Construct parsed query object</span>
+    parsed_query ← {
+        intent: query_intent,
+        entities: extracted_entities,
+        parameters: query_parameters,
+        confidence: <span class="text-primary-700">CALCULATE_PARSING_CONFIDENCE</span>(),
+        original_query: validated_input
+    }
+    
+    <span class="text-warning-600">RETURN</span> parsed_query
+<span class="text-warning-600">END</span></code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Data Retrieval Section -->
+                        <div id="data-retrieval" class="bg-surface border border-border rounded-2xl shadow-hydro overflow-hidden">
+                            <div class="bg-gradient-to-r from-primary-50 to-warning-50 px-6 py-4 border-b border-border">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-xl font-heading font-semibold text-text-primary flex items-center">
+                                        <svg class="w-5 h-5 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                                        </svg>
+                                        INGRES Data Retrieval
+                                    </h2>
+                                    <button class="copy-btn bg-primary-100 hover:bg-primary-200 text-primary px-3 py-1 rounded-md text-sm font-medium transition-smooth" data-target="retrieval-code">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <pre id="retrieval-code" class="font-mono text-sm bg-background p-4 rounded-lg overflow-x-auto border border-border-light"><code class="language-pseudocode"><span class="text-accent-600 font-semibold">FUNCTION</span> <span class="text-primary-700">RETRIEVE_DATA</span>(parsed_query)
+<span class="text-secondary-600">// Retrieves relevant groundwater data from INGRES database</span>
+
+<span class="text-warning-600">BEGIN</span>
+    <span class="text-secondary-600">// Initialize database connections</span>
+    ingres_db ← <span class="text-accent-600">CONNECT_TO_INGRES_DATABASE</span>()
+    cache_manager ← <span class="text-accent-600">INITIALIZE_CACHE</span>()
+    
+    <span class="text-secondary-600">// Check cache first for performance</span>
+    cache_key ← <span class="text-primary-700">GENERATE_CACHE_KEY</span>(parsed_query)
+    cached_data ← cache_manager.<span class="text-primary-700">GET</span>(cache_key)
+    
+    <span class="text-warning-600">IF</span> cached_data <span class="text-warning-600">IS NOT</span> null <span class="text-warning-600">AND</span> <span class="text-primary-700">IS_CACHE_VALID</span>(cached_data) <span class="text-warning-600">THEN</span>
+        <span class="text-warning-600">RETURN</span> cached_data
+    <span class="text-warning-600">END IF</span>
+    
+    <span class="text-secondary-600">// Build database query based on parsed parameters</span>
+    db_query ← <span class="text-primary-700">BUILD_DATABASE_QUERY</span>(parsed_query)
+    
+    <span class="text-secondary-600">// Execute data retrieval</span>
+    retrieved_data ← {}
+    
+    <span class="text-warning-600">SWITCH</span> parsed_query.intent
+        <span class="text-warning-600">CASE</span> "DATA_QUERY":
+            retrieved_data.groundwater_levels ← ingres_db.<span class="text-primary-700">QUERY_WATER_LEVELS</span>(db_query)
+            retrieved_data.quality_parameters ← ingres_db.<span class="text-primary-700">QUERY_QUALITY_DATA</span>(db_query)
+            retrieved_data.well_information ← ingres_db.<span class="text-primary-700">QUERY_WELL_DATA</span>(db_query)
+        
+        <span class="text-warning-600">CASE</span> "ANALYSIS_REQUEST":
+            retrieved_data.historical_trends ← ingres_db.<span class="text-primary-700">QUERY_HISTORICAL_DATA</span>(db_query)
+            retrieved_data.statistical_summary ← <span class="text-primary-700">CALCULATE_STATISTICS</span>(retrieved_data)
+        
+        <span class="text-warning-600">CASE</span> "COMPARISON":
+            retrieved_data.comparative_data ← ingres_db.<span class="text-primary-700">QUERY_COMPARATIVE_DATASETS</span>(db_query)
+            retrieved_data.benchmark_data ← <span class="text-primary-700">GET_BENCHMARK_VALUES</span>(parsed_query.parameters)
+        
+        <span class="text-warning-600">CASE</span> "PREDICTION":
+            retrieved_data.model_inputs ← ingres_db.<span class="text-primary-700">QUERY_PREDICTION_INPUTS</span>(db_query)
+            retrieved_data.historical_patterns ← <span class="text-primary-700">ANALYZE_PATTERNS</span>(retrieved_data.model_inputs)
+    <span class="text-warning-600">END SWITCH</span>
+    
+    <span class="text-secondary-600">// Data quality validation</span>
+    validated_data ← <span class="text-primary-700">VALIDATE_DATA_QUALITY</span>(retrieved_data)
+    
+    <span class="text-secondary-600">// Cache results for future queries</span>
+    cache_manager.<span class="text-primary-700">SET</span>(cache_key, validated_data, <span class="text-accent-600">CACHE_EXPIRY_TIME</span>)
+    
+    <span class="text-warning-600">RETURN</span> validated_data
+<span class="text-warning-600">END</span></code></pre>
+                            </div>
+                        </div>
+
+                        <!-- AI Processing Section -->
+                        <div id="ai-processing" class="bg-surface border border-border rounded-2xl shadow-hydro overflow-hidden">
+                            <div class="bg-gradient-to-r from-secondary-50 to-primary-50 px-6 py-4 border-b border-border">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-xl font-heading font-semibold text-text-primary flex items-center">
+                                        <svg class="w-5 h-5 text-secondary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                        </svg>
+                                        AI Processing & Analysis
+                                    </h2>
+                                    <button class="copy-btn bg-secondary-100 hover:bg-secondary-200 text-secondary px-3 py-1 rounded-md text-sm font-medium transition-smooth" data-target="ai-code">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <pre id="ai-code" class="font-mono text-sm bg-background p-4 rounded-lg overflow-x-auto border border-border-light"><code class="language-pseudocode"><span class="text-accent-600 font-semibold">FUNCTION</span> <span class="text-primary-700">PROCESS_WITH_AI</span>(parsed_query, retrieved_data)
+<span class="text-secondary-600">// Applies AI models to generate intelligent insights and responses</span>
+
+<span class="text-warning-600">BEGIN</span>
+    <span class="text-secondary-600">// Initialize AI components</span>
+    ai_model ← <span class="text-accent-600">LOAD_GROUNDWATER_AI_MODEL</span>()
+    context_builder ← <span class="text-accent-600">INITIALIZE_CONTEXT_BUILDER</span>()
+    
+    <span class="text-secondary-600">// Build context for AI processing</span>
+    processing_context ← {
+        query_intent: parsed_query.intent,
+        user_parameters: parsed_query.parameters,
+        data_summary: <span class="text-primary-700">SUMMARIZE_DATA</span>(retrieved_data),
+        domain_knowledge: <span class="text-primary-700">LOAD_DOMAIN_KNOWLEDGE</span>()
+    }
+    
+    <span class="text-secondary-600">// Apply appropriate AI processing based on intent</span>
+    ai_response ← {}
+    
+    <span class="text-warning-600">SWITCH</span> parsed_query.intent
+        <span class="text-warning-600">CASE</span> "DATA_QUERY":
+            ai_response.interpretation ← ai_model.<span class="text-primary-700">INTERPRET_DATA</span>(retrieved_data, processing_context)
+            ai_response.key_insights ← <span class="text-primary-700">EXTRACT_KEY_INSIGHTS</span>(retrieved_data)
+            ai_response.recommendations ← <span class="text-primary-700">GENERATE_RECOMMENDATIONS</span>(ai_response.interpretation)
+        
+        <span class="text-warning-600">CASE</span> "ANALYSIS_REQUEST":
+            ai_response.trend_analysis ← ai_model.<span class="text-primary-700">ANALYZE_TRENDS</span>(retrieved_data.historical_trends)
+            ai_response.statistical_insights ← <span class="text-primary-700">GENERATE_STATISTICAL_INSIGHTS</span>(retrieved_data)
+            ai_response.risk_assessment ← <span class="text-primary-700">ASSESS_RISKS</span>(ai_response.trend_analysis)
+        
+        <span class="text-warning-600">CASE</span> "COMPARISON":
+            ai_response.comparative_analysis ← ai_model.<span class="text-primary-700">COMPARE_DATASETS</span>(retrieved_data.comparative_data)
+            ai_response.deviation_analysis ← <span class="text-primary-700">ANALYZE_DEVIATIONS</span>(retrieved_data.benchmark_data)
+            ai_response.contextual_explanation ← <span class="text-primary-700">EXPLAIN_DIFFERENCES</span>(ai_response.comparative_analysis)
+        
+        <span class="text-warning-600">CASE</span> "PREDICTION":
+            ai_response.predictions ← ai_model.<span class="text-primary-700">GENERATE_PREDICTIONS</span>(retrieved_data.model_inputs)
+            ai_response.confidence_intervals ← <span class="text-primary-700">CALCULATE_CONFIDENCE</span>(ai_response.predictions)
+            ai_response.scenario_analysis ← <span class="text-primary-700">ANALYZE_SCENARIOS</span>(retrieved_data.historical_patterns)
+    <span class="text-warning-600">END SWITCH</span>
+    
+    <span class="text-secondary-600">// Generate natural language explanation</span>
+    ai_response.natural_language_summary ← ai_model.<span class="text-primary-700">GENERATE_EXPLANATION</span>(
+        ai_response, 
+        processing_context, 
+        parsed_query.original_query
+    )
+    
+    <span class="text-secondary-600">// Quality assurance and validation</span>
+    ai_response.confidence_score ← <span class="text-primary-700">CALCULATE_RESPONSE_CONFIDENCE</span>(ai_response)
+    ai_response.validation_status ← <span class="text-primary-700">VALIDATE_AI_OUTPUT</span>(ai_response)
+    
+    <span class="text-warning-600">RETURN</span> ai_response
+<span class="text-warning-600">END</span></code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Response Generation Section -->
+                        <div id="response-generation" class="bg-surface border border-border rounded-2xl shadow-hydro overflow-hidden">
+                            <div class="bg-gradient-to-r from-warning-50 to-accent-50 px-6 py-4 border-b border-border">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-xl font-heading font-semibold text-text-primary flex items-center">
+                                        <svg class="w-5 h-5 text-warning mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                        Response Generation
+                                    </h2>
+                                    <button class="copy-btn bg-warning-100 hover:bg-warning-200 text-warning px-3 py-1 rounded-md text-sm font-medium transition-smooth" data-target="response-code">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <pre id="response-code" class="font-mono text-sm bg-background p-4 rounded-lg overflow-x-auto border border-border-light"><code class="language-pseudocode"><span class="text-accent-600 font-semibold">FUNCTION</span> <span class="text-primary-700">FORMAT_RESPONSE</span>(ai_response)
+<span class="text-secondary-600">// Formats AI output into user-friendly response with visualizations</span>
+
+<span class="text-warning-600">BEGIN</span>
+    <span class="text-secondary-600">// Initialize response formatter</span>
+    response_formatter ← <span class="text-accent-600">INITIALIZE_RESPONSE_FORMATTER</span>()
+    visualization_engine ← <span class="text-accent-600">LOAD_VISUALIZATION_ENGINE</span>()
+    
+    <span class="text-secondary-600">// Structure the response</span>
+    formatted_response ← {
+        summary: ai_response.natural_language_summary,
+        confidence: ai_response.confidence_score,
+        timestamp: <span class="text-accent-600">CURRENT_TIMESTAMP</span>(),
+        data_sources: <span class="text-primary-700">LIST_DATA_SOURCES</span>(ai_response)
+    }
+    
+    <span class="text-secondary-600">// Add visualizations based on response type</span>
+    <span class="text-warning-600">IF</span> ai_response.predictions <span class="text-warning-600">IS NOT</span> null <span class="text-warning-600">THEN</span>
+        formatted_response.charts ← visualization_engine.<span class="text-primary-700">CREATE_PREDICTION_CHARTS</span>(ai_response.predictions)
+    <span class="text-warning-600">END IF</span>
+    
+    <span class="text-warning-600">IF</span> ai_response.trend_analysis <span class="text-warning-600">IS NOT</span> null <span class="text-warning-600">THEN</span>
+        formatted_response.trend_graphs ← visualization_engine.<span class="text-primary-700">CREATE_TREND_GRAPHS</span>(ai_response.trend_analysis)
+    <span class="text-warning-600">END IF</span>
+    
+    <span class="text-warning-600">IF</span> ai_response.comparative_analysis <span class="text-warning-600">IS NOT</span> null <span class="text-warning-600">THEN</span>
+        formatted_response.comparison_tables ← <span class="text-primary-700">CREATE_COMPARISON_TABLES</span>(ai_response.comparative_analysis)
+    <span class="text-warning-600">END IF</span>
+    
+    <span class="text-secondary-600">// Add interactive elements</span>
+    formatted_response.interactive_elements ← {
+        follow_up_questions: <span class="text-primary-700">GENERATE_FOLLOW_UP_QUESTIONS</span>(ai_response),
+        related_queries: <span class="text-primary-700">SUGGEST_RELATED_QUERIES</span>(ai_response),
+        data_export_options: <span class="text-primary-700">CREATE_EXPORT_OPTIONS</span>(ai_response)
+    }
+    
+    <span class="text-secondary-600">// Apply user preferences and accessibility</span>
+    formatted_response ← <span class="text-primary-700">APPLY_USER_PREFERENCES</span>(formatted_response)
+    formatted_response ← <span class="text-primary-700">ENSURE_ACCESSIBILITY</span>(formatted_response)
+    
+    <span class="text-warning-600">RETURN</span> formatted_response
+<span class="text-warning-600">END</span></code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Error Handling Section -->
+                        <div id="error-handling" class="bg-surface border border-border rounded-2xl shadow-hydro overflow-hidden">
+                            <div class="bg-gradient-to-r from-error-50 to-warning-50 px-6 py-4 border-b border-border">
+                                <div class="flex items-center justify-between">
+                                    <h2 class="text-xl font-heading font-semibold text-text-primary flex items-center">
+                                        <svg class="w-5 h-5 text-error mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.268 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                                        </svg>
+                                        Error Handling & Recovery
+                                    </h2>
+                                    <button class="copy-btn bg-error-100 hover:bg-error-200 text-error px-3 py-1 rounded-md text-sm font-medium transition-smooth" data-target="error-code">
+                                        Copy
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <pre id="error-code" class="font-mono text-sm bg-background p-4 rounded-lg overflow-x-auto border border-border-light"><code class="language-pseudocode"><span class="text-accent-600 font-semibold">FUNCTION</span> <span class="text-primary-700">HANDLE_SYSTEM_ERRORS</span>(error_context)
+<span class="text-secondary-600">// Comprehensive error handling and recovery mechanisms</span>
+
+<span class="text-warning-600">BEGIN</span>
+    error_logger ← <span class="text-accent-600">INITIALIZE_ERROR_LOGGER</span>()
+    recovery_manager ← <span class="text-accent-600">INITIALIZE_RECOVERY_MANAGER</span>()
+    
+    <span class="text-secondary-600">// Log error details</span>
+    error_logger.<span class="text-primary-700">LOG_ERROR</span>(error_context.type, error_context.details, <span class="text-accent-600">CURRENT_TIMESTAMP</span>())
+    
+    <span class="text-secondary-600">// Determine error type and appropriate response</span>
+    <span class="text-warning-600">SWITCH</span> error_context.type
+        <span class="text-warning-600">CASE</span> "DATABASE_CONNECTION_ERROR":
+            <span class="text-warning-600">TRY</span>
+                backup_connection ← recovery_manager.<span class="text-primary-700">GET_BACKUP_CONNECTION</span>()
+                <span class="text-warning-600">IF</span> backup_connection <span class="text-warning-600">IS</span> available <span class="text-warning-600">THEN</span>
+                    <span class="text-warning-600">RETURN</span> <span class="text-primary-700">RETRY_WITH_BACKUP</span>(error_context.original_request)
+                <span class="text-warning-600">ELSE</span>
+                    <span class="text-warning-600">RETURN</span> <span class="text-primary-700">GENERATE_OFFLINE_RESPONSE</span>()
+                <span class="text-warning-600">END IF</span>
+            <span class="text-warning-600">CATCH</span> recovery_error
+                <span class="text-warning-600">RETURN</span> <span class="text-primary-700">GENERATE_ERROR_MESSAGE</span>("Database temporarily unavailable")
+            <span class="text-warning-600">END TRY</span>
+        
+        <span class="text-warning-600">CASE</span> "AI_MODEL_ERROR":
+            <span class="text-warning-600">RETURN</span> <span class="text-primary-700">FALLBACK_TO_RULE_BASED_RESPONSE</span>(error_context.query)
+        
+        <span class="text-warning-600">CASE</span> "DATA_QUALITY_ERROR":
+            <span class="text-warning-600">RETURN</span> <span class="text-primary-700">GENERATE_DATA_QUALITY_WARNING</span>(error_context.data_issues)
+        
+        <span class="text-warning-600">CASE</span> "PARSING_ERROR":
+            <span class="text-warning-600">RETURN</span> <span class="text-primary-700">REQUEST_QUERY_CLARIFICATION</span>(error_context.parsing_issues)
+        
+        <span class="text-warning-600">DEFAULT</span>:
+            <span class="text-warning-600">RETURN</span> <span class="text-primary-700">GENERATE_GENERIC_ERROR_RESPONSE</span>()
+    <span class="text-warning-600">END SWITCH</span>
+<span class="text-warning-600">END</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Logo and Description -->
+                <div class="col-span-1">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary-300" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="28" r="2" fill="currentColor"/>
+                        </svg>
+                        <span class="ml-2 text-xl font-heading font-semibold">INGRES ChatBOT</span>
+                    </div>
+                    <p class="text-primary-200 text-sm leading-relaxed">
+                        Empowering groundwater management in India through intelligent AI-driven conversations and data insights.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-heading font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="project_overview.html" class="text-primary-200 hover:text-white transition-smooth">Project Overview</a></li>
+                        <li><a href="live_chat_interface.html" class="text-primary-200 hover:text-white transition-smooth">Live Chat</a></li>
+                        <li><a href="team_profiles.html" class="text-primary-200 hover:text-white transition-smooth">Our Team</a></li>
+                        <li><a href="contact_form.html" class="text-primary-200 hover:text-white transition-smooth">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-heading font-semibold mb-4">Connect With Us</h3>
+                    <div class="space-y-2">
+                        <p class="text-primary-200 text-sm">
+                            <span class="font-medium">Email:</span> info@ingres-chatbot.in
+                        </p>
+                        <p class="text-primary-200 text-sm">
+                            <span class="font-medium">Research:</span> groundwater@ingres.gov.in
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-8 pt-8 text-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 INGRES ChatBOT. All Rights Reserved. | Advancing Groundwater Management in India
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navigation panel toggle for mobile
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            const navPanel = document.querySelector('.lg\\:w-1\\/4');
+            navPanel.classList.toggle('hidden');
+        });
+
+        // Copy to clipboard functionality
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const codeElement = document.getElementById(targetId);
+                const textToCopy = codeElement.textContent;
+                
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    // Visual feedback
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    this.classList.add('bg-success-100', 'text-success');
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.classList.remove('bg-success-100', 'text-success');
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            });
+        });
+
+        // Search functionality
+        document.getElementById('code-search').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const codeBlocks = document.querySelectorAll('pre code');
+            
+            codeBlocks.forEach(block => {
+                const codeText = block.textContent.toLowerCase();
+                const parentSection = block.closest('.bg-surface');
+                
+                if (searchTerm === '' || codeText.includes(searchTerm)) {
+                    parentSection.style.display = 'block';
+                } else {
+                    parentSection.style.display = 'none';
+                }
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in navigation
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '-100px 0px -50% 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                const navLink = document.querySelector(`a[href="#${entry.target.id}"]`);
+                if (navLink) {
+                    if (entry.isIntersecting) {
+                        // Remove active class from all nav links
+                        document.querySelectorAll('.lg\\:w-1\\/4 a').forEach(link => {
+                            link.classList.remove('bg-primary-100', 'text-primary');
+                            link.classList.add('text-text-secondary');
+                        });
+                        
+                        // Add active class to current nav link
+                        navLink.classList.remove('text-text-secondary');
+                        navLink.classList.add('bg-primary-100', 'text-primary');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all code sections
+        document.querySelectorAll('[id]').forEach(section => {
+            if (section.id && section.id !== 'mobile-menu' && section.id !== 'code-search') {
+                observer.observe(section);
+            }
+        });
+
+        // Add syntax highlighting effect
+        document.querySelectorAll('code').forEach(block => {
+            // Add line numbers
+            const lines = block.innerHTML.split('\n');
+            const numberedLines = lines.map((line, index) => {
+                if (line.trim() !== '') {
+                    return `<span class="line-number text-text-secondary text-xs mr-4">${(index + 1).toString().padStart(2, '0')}</span>${line}`;
+                }
+                return line;
+            });
+            block.innerHTML = numberedLines.join('\n');
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

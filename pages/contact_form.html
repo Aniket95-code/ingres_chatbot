@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form - INGRES ChatBOT</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fingrescha3217back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background font-body text-text-primary">
+    <!-- Navigation Header -->
+    <nav class="bg-surface shadow-hydro-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="28" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-lg font-heading font-semibold text-primary">INGRES ChatBOT</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Home</a>
+                        <a href="project_overview.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Overview</a>
+                        <a href="pseudocode_display.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Pseudocode</a>
+                        <a href="live_chat_interface.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Live Chat</a>
+                        <a href="team_profiles.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Team</a>
+                        <a href="contact_form.html" class="bg-primary-100 text-primary px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="bg-surface inline-flex items-center justify-center p-2 rounded-md text-text-secondary hover:text-primary hover:bg-primary-50 focus-hydro" id="mobile-menu-button">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface border-t border-border">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Home</a>
+                <a href="project_overview.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Overview</a>
+                <a href="pseudocode_display.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Pseudocode</a>
+                <a href="live_chat_interface.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Live Chat</a>
+                <a href="team_profiles.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Team</a>
+                <a href="contact_form.html" class="bg-primary-100 text-primary block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-primary-50 via-secondary-50 to-accent-50 py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-primary mb-4 leading-tight">
+                    Get in Touch
+                </h1>
+                <p class="text-lg md:text-xl text-text-secondary mb-8 max-w-2xl mx-auto leading-relaxed">
+                    We'd love to hear from water resource professionals, researchers, and collaborators interested in groundwater management solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Contact Information -->
+                <div class="lg:col-span-1">
+                    <div class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 shadow-hydro-lg">
+                        <h2 class="text-2xl font-heading font-bold text-text-primary mb-6">Contact Information</h2>
+                        
+                        <!-- Primary Contact -->
+                        <div class="mb-8">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-heading font-semibold text-text-primary">Project Email</h3>
+                                    <p class="text-text-secondary text-sm">General inquiries and feedback</p>
+                                </div>
+                            </div>
+                            <p class="text-primary font-medium ml-14">info@ingres-chatbot.in</p>
+                        </div>
+
+                        <!-- Research Contact -->
+                        <div class="mb-8">
+                            <div class="flex items-center mb-4">
+                                <div class="w-10 h-10 bg-secondary rounded-xl flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-heading font-semibold text-text-primary">Research Team</h3>
+                                    <p class="text-text-secondary text-sm">Technical and collaboration inquiries</p>
+                                </div>
+                            </div>
+                            <p class="text-secondary font-medium ml-14">groundwater@ingres.gov.in</p>
+                        </div>
+
+                        <!-- Response Time -->
+                        <div class="bg-surface rounded-xl p-6 border border-border">
+                            <div class="flex items-center mb-3">
+                                <svg class="w-5 h-5 text-accent mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <h3 class="font-heading font-semibold text-text-primary">Response Time</h3>
+                            </div>
+                            <p class="text-text-secondary text-sm leading-relaxed">
+                                We typically respond to inquiries within 24-48 hours during business days. Technical questions may require additional time for thorough research.
+                            </p>
+                        </div>
+
+                        <!-- Institutional Affiliation -->
+                        <div class="mt-8 pt-6 border-t border-border-light">
+                            <h3 class="font-heading font-semibold text-text-primary mb-3">Institutional Affiliation</h3>
+                            <p class="text-text-secondary text-sm leading-relaxed">
+                                This project is developed in collaboration with Indian groundwater research institutions and water resource management authorities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-2">
+                    <div class="bg-surface rounded-2xl p-8 shadow-hydro-lg border border-border">
+                        <h2 class="text-2xl font-heading font-bold text-text-primary mb-6">Send us a Message</h2>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <!-- Name and Email Row -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-text-primary mb-2">
+                                        Full Name <span class="text-error">*</span>
+                                    </label>
+                                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-border rounded-xl focus-hydro transition-smooth bg-surface text-text-primary placeholder-text-secondary" placeholder="Enter your full name" />
+                                    <div class="error-message hidden text-error text-sm mt-1" id="name-error"></div>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-text-primary mb-2">
+                                        Email Address <span class="text-error">*</span>
+                                    </label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-border rounded-xl focus-hydro transition-smooth bg-surface text-text-primary placeholder-text-secondary" placeholder="your.email@example.com" />
+                                    <div class="error-message hidden text-error text-sm mt-1" id="email-error"></div>
+                                </div>
+                            </div>
+
+                            <!-- Organization -->
+                            <div>
+                                <label for="organization" class="block text-sm font-medium text-text-primary mb-2">
+                                    Organization/Institution
+                                </label>
+                                <input type="text" id="organization" name="organization" class="w-full px-4 py-3 border border-border rounded-xl focus-hydro transition-smooth bg-surface text-text-primary placeholder-text-secondary" placeholder="Your organization or institution" />
+                            </div>
+
+                            <!-- Subject Category -->
+                            <div>
+                                <label for="subject-category" class="block text-sm font-medium text-text-primary mb-2">
+                                    Subject Category <span class="text-error">*</span>
+                                </label>
+                                <select id="subject-category" name="subject-category" required class="w-full px-4 py-3 border border-border rounded-xl focus-hydro transition-smooth bg-surface text-text-primary">
+                                    <option value>Select inquiry type</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="technical">Technical Inquiry</option>
+                                    <option value="general">General Question</option>
+                                </select>
+                                <div class="error-message hidden text-error text-sm mt-1" id="category-error"></div>
+                            </div>
+
+                            <!-- Conditional Fields -->
+                            <div id="conditional-fields" class="hidden space-y-6">
+                                <!-- Technical Inquiry Fields -->
+                                <div id="technical-fields" class="hidden">
+                                    <label for="technical-area" class="block text-sm font-medium text-text-primary mb-2">
+                                        Technical Area of Interest
+                                    </label>
+                                    <select id="technical-area" name="technical-area" class="w-full px-4 py-3 border border-border rounded-xl focus-hydro transition-smooth bg-surface text-text-primary">
+                                        <option value>Select technical area</option>
+                                        <option value="ai-algorithms">AI Algorithms</option>
+                                        <option value="data-processing">Data Processing</option>
+                                        <option value="api-integration">API Integration</option>
+                                        <option value="groundwater-modeling">Groundwater Modeling</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+
+                                <!-- Collaboration Fields -->
+                                <div id="collaboration-fields" class="hidden">
+                                    <label for="collaboration-type" class="block text-sm font-medium text-text-primary mb-2">
+                                        Type of Collaboration
+                                    </label>
+                                    <select id="collaboration-type" name="collaboration-type" class="w-full px-4 py-3 border border-border rounded-xl focus-hydro transition-smooth bg-surface text-text-primary">
+                                        <option value>Select collaboration type</option>
+                                        <option value="research">Research Partnership</option>
+                                        <option value="data-sharing">Data Sharing</option>
+                                        <option value="implementation">Implementation Support</option>
+                                        <option value="funding">Funding Opportunity</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Message -->
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-text-primary mb-2">
+                                    Detailed Message <span class="text-error">*</span>
+                                </label>
+                                <textarea id="message" name="message" rows="6" required maxlength="2000" class="w-full px-4 py-3 border border-border rounded-xl focus-hydro transition-smooth bg-surface text-text-primary placeholder-text-secondary resize-vertical" placeholder="Please provide detailed information about your inquiry, including any specific questions or requirements..."></textarea>
+                                <div class="flex justify-between items-center mt-2">
+                                    <div class="error-message hidden text-error text-sm" id="message-error"></div>
+                                    <div class="text-text-secondary text-sm">
+                                        <span id="char-count">0</span>/2000 characters
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Privacy Notice -->
+                            <div class="bg-primary-50 rounded-xl p-4 border border-primary-200">
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 text-primary mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-medium text-primary mb-1">Privacy & Security</h4>
+                                        <p class="text-primary-700 text-sm leading-relaxed">
+                                            Your information is transmitted securely via HTTPS and will only be used to respond to your inquiry. We do not share personal information with third parties.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                                <button type="submit" id="submit-btn" class="flex-1 bg-primary hover:bg-primary-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-hydro-lg hover-lift transition-smooth flex items-center justify-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                                    </svg>
+                                    <span id="submit-text">Send Message</span>
+                                </button>
+                                <button type="button" id="reset-btn" class="bg-surface hover:bg-primary-50 text-primary border-2 border-primary px-6 py-4 rounded-xl font-semibold shadow-hydro hover-lift transition-smooth">
+                                    Reset Form
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Success Message -->
+                        <div id="success-message" class="hidden mt-8 bg-success-50 border border-success-200 rounded-xl p-6">
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-success mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <div>
+                                    <h3 class="font-heading font-semibold text-success-800 mb-1">Message Sent Successfully!</h3>
+                                    <p class="text-success-700 text-sm">
+                                        Thank you for contacting us. We'll respond to your inquiry within 24-48 hours during business days.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Logo and Description -->
+                <div class="col-span-1">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary-300" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="28" r="2" fill="currentColor"/>
+                        </svg>
+                        <span class="ml-2 text-xl font-heading font-semibold">INGRES ChatBOT</span>
+                    </div>
+                    <p class="text-primary-200 text-sm leading-relaxed">
+                        Empowering groundwater management in India through intelligent AI-driven conversations and data insights.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-heading font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="project_overview.html" class="text-primary-200 hover:text-white transition-smooth">Project Overview</a></li>
+                        <li><a href="live_chat_interface.html" class="text-primary-200 hover:text-white transition-smooth">Live Chat</a></li>
+                        <li><a href="team_profiles.html" class="text-primary-200 hover:text-white transition-smooth">Our Team</a></li>
+                        <li><a href="contact_form.html" class="text-primary-200 hover:text-white transition-smooth">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-span-1">
+                    <h3 class="text-lg font-heading font-semibold mb-4">Connect With Us</h3>
+                    <div class="space-y-2">
+                        <p class="text-primary-200 text-sm">
+                            <span class="font-medium">Email:</span> info@ingres-chatbot.in
+                        </p>
+                        <p class="text-primary-200 text-sm">
+                            <span class="font-medium">Research:</span> groundwater@ingres.gov.in
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-8 pt-8 text-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 INGRES ChatBOT. All Rights Reserved. | Advancing Groundwater Management in India
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form handling
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        const successMessage = document.getElementById('success-message');
+        const charCount = document.getElementById('char-count');
+        const messageTextarea = document.getElementById('message');
+        const subjectCategory = document.getElementById('subject-category');
+        const conditionalFields = document.getElementById('conditional-fields');
+        const technicalFields = document.getElementById('technical-fields');
+        const collaborationFields = document.getElementById('collaboration-fields');
+
+        // Character count for message
+        messageTextarea.addEventListener('input', function() {
+            const count = this.value.length;
+            charCount.textContent = count;
+            
+            if (count > 1900) {
+                charCount.parentElement.classList.add('text-warning');
+            } else {
+                charCount.parentElement.classList.remove('text-warning');
+            }
+        });
+
+        // Conditional fields based on subject category
+        subjectCategory.addEventListener('change', function() {
+            const value = this.value;
+            
+            // Hide all conditional fields first
+            conditionalFields.classList.add('hidden');
+            technicalFields.classList.add('hidden');
+            collaborationFields.classList.add('hidden');
+            
+            // Show relevant fields based on selection
+            if (value === 'technical') {
+                conditionalFields.classList.remove('hidden');
+                technicalFields.classList.remove('hidden');
+            } else if (value === 'collaboration') {
+                conditionalFields.classList.remove('hidden');
+                collaborationFields.classList.remove('hidden');
+            }
+        });
+
+        // Form validation
+        function validateForm() {
+            let isValid = true;
+            const requiredFields = ['name', 'email', 'subject-category', 'message'];
+            
+            requiredFields.forEach(fieldName => {
+                const field = document.getElementById(fieldName);
+                const errorElement = document.getElementById(fieldName + '-error');
+                
+                if (!field.value.trim()) {
+                    showError(errorElement, 'This field is required');
+                    isValid = false;
+                } else {
+                    hideError(errorElement);
+                }
+            });
+
+            // Email validation
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email.value && !emailRegex.test(email.value)) {
+                showError(emailError, 'Please enter a valid email address');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        function showError(errorElement, message) {
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+            errorElement.parentElement.querySelector('input, select, textarea').classList.add('border-error');
+        }
+
+        function hideError(errorElement) {
+            errorElement.classList.add('hidden');
+            errorElement.parentElement.querySelector('input, select, textarea').classList.remove('border-error');
+        }
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.textContent = 'Sending...';
+            submitBtn.classList.add('opacity-75');
+
+            // Simulate form submission
+            setTimeout(() => {
+                // Hide form and show success message
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+                
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.textContent = 'Send Message';
+                submitBtn.classList.remove('opacity-75');
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 2000);
+        });
+
+        // Reset form
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            form.reset();
+            charCount.textContent = '0';
+            conditionalFields.classList.add('hidden');
+            technicalFields.classList.add('hidden');
+            collaborationFields.classList.add('hidden');
+            
+            // Hide all error messages
+            document.querySelectorAll('.error-message').forEach(error => {
+                error.classList.add('hidden');
+            });
+            
+            // Remove error styling
+            document.querySelectorAll('.border-error').forEach(field => {
+                field.classList.remove('border-error');
+            });
+            
+            // Show form if hidden
+            form.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+        });
+
+        // Real-time validation
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('blur', function() {
+                const errorElement = document.getElementById(this.name + '-error');
+                if (errorElement) {
+                    if (!this.value.trim() && this.required) {
+                        showError(errorElement, 'This field is required');
+                    } else if (this.type === 'email' && this.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value)) {
+                        showError(errorElement, 'Please enter a valid email address');
+                    } else {
+                        hideError(errorElement);
+                    }
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe form sections
+        document.querySelectorAll('.hover-lift, .shadow-hydro-lg').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

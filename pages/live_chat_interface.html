@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Chat Interface - AI-Driven ChatBOT for INGRES</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fingrescha3217back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background font-body text-text-primary h-screen flex flex-col">
+    <!-- Navigation Header -->
+    <nav class="bg-surface shadow-hydro-md sticky top-0 z-50 flex-shrink-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-primary" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="28" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-lg font-heading font-semibold text-primary">INGRES ChatBOT</h1>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="homepage.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Home</a>
+                        <a href="project_overview.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Overview</a>
+                        <a href="pseudocode_display.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Pseudocode</a>
+                        <a href="live_chat_interface.html" class="bg-primary-100 text-primary px-3 py-2 rounded-md text-sm font-medium">Live Chat</a>
+                        <a href="team_profiles.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Team</a>
+                        <a href="contact_form.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 px-3 py-2 rounded-md text-sm font-medium transition-smooth">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="bg-surface inline-flex items-center justify-center p-2 rounded-md text-text-secondary hover:text-primary hover:bg-primary-50 focus-hydro" id="mobile-menu-button">
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-surface border-t border-border">
+                <a href="homepage.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Home</a>
+                <a href="project_overview.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Overview</a>
+                <a href="pseudocode_display.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Pseudocode</a>
+                <a href="live_chat_interface.html" class="bg-primary-100 text-primary block px-3 py-2 rounded-md text-base font-medium">Live Chat</a>
+                <a href="team_profiles.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Team</a>
+                <a href="contact_form.html" class="text-text-secondary hover:text-primary hover:bg-primary-50 block px-3 py-2 rounded-md text-base font-medium transition-smooth">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Chat Interface Container -->
+    <div class="flex-1 flex flex-col max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6">
+        <!-- Chat Header -->
+        <div class="bg-surface rounded-t-2xl border border-border p-4 shadow-hydro">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-heading font-semibold text-text-primary">INGRES AI Assistant</h2>
+                        <p class="text-sm text-text-secondary">Online • Ready to help with groundwater queries</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <!-- Export Chat Button -->
+                    <button class="p-2 text-text-secondary hover:text-primary hover:bg-primary-50 rounded-lg transition-smooth" id="export-chat" title="Export Chat">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </button>
+                    <!-- Clear Chat Button -->
+                    <button class="p-2 text-text-secondary hover:text-error hover:bg-error-50 rounded-lg transition-smooth" id="clear-chat" title="Clear Chat">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="flex-1 bg-surface border-l border-r border-border overflow-y-auto" id="chat-messages">
+            <div class="p-6 space-y-6">
+                <!-- Welcome Message -->
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-primary-50 rounded-2xl rounded-tl-md p-4">
+                            <p class="text-text-primary">Welcome to the INGRES AI Assistant! I'm here to help you with groundwater resource assessments, data analysis, and management insights across India. You can:</p>
+                            <ul class="mt-3 space-y-1 text-sm text-text-secondary">
+                                <li>• Ask about groundwater quality parameters</li>
+                                <li>• Request data analysis for specific regions</li>
+                                <li>• Get recommendations for water management</li>
+                                <li>• Upload data files for processing</li>
+                                <li>• Use voice commands for hands-free interaction</li>
+                            </ul>
+                        </div>
+                        <div class="flex items-center mt-2 text-xs text-text-secondary">
+                            <span>INGRES AI</span>
+                            <span class="mx-2">•</span>
+                            <span>Just now</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample User Message -->
+                <div class="flex items-start space-x-3 justify-end">
+                    <div class="flex-1 max-w-xs sm:max-w-md lg:max-w-lg">
+                        <div class="bg-primary text-white rounded-2xl rounded-tr-md p-4">
+                            <p>What's the current groundwater quality status in Maharashtra?</p>
+                        </div>
+                        <div class="flex items-center justify-end mt-2 text-xs text-text-secondary">
+                            <span>You</span>
+                            <span class="mx-2">•</span>
+                            <span>2 minutes ago</span>
+                        </div>
+                    </div>
+                    <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Sample AI Response with Data -->
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="bg-primary-50 rounded-2xl rounded-tl-md p-4">
+                            <p class="text-text-primary mb-4">Based on the latest INGRES data for Maharashtra, here's the current groundwater quality overview:</p>
+                            
+                            <!-- Data Table -->
+                            <div class="bg-surface rounded-lg border border-border overflow-hidden mb-4">
+                                <div class="px-4 py-3 bg-primary-100 border-b border-border">
+                                    <h4 class="font-semibold text-text-primary">Key Quality Parameters</h4>
+                                </div>
+                                <div class="p-4">
+                                    <div class="grid grid-cols-2 gap-4 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">Average pH:</span>
+                                            <span class="font-medium text-text-primary">7.2</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">TDS (mg/L):</span>
+                                            <span class="font-medium text-text-primary">485</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">Fluoride (mg/L):</span>
+                                            <span class="font-medium text-warning">1.8</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-text-secondary">Nitrate (mg/L):</span>
+                                            <span class="font-medium text-success">28</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Status Indicators -->
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-success-100 text-success-700 rounded-full text-xs font-medium">pH: Normal</span>
+                                <span class="px-3 py-1 bg-warning-100 text-warning-700 rounded-full text-xs font-medium">TDS: Moderate</span>
+                                <span class="px-3 py-1 bg-error-100 text-error-700 rounded-full text-xs font-medium">Fluoride: High</span>
+                                <span class="px-3 py-1 bg-success-100 text-success-700 rounded-full text-xs font-medium">Nitrate: Safe</span>
+                            </div>
+
+                            <p class="text-sm text-text-secondary">Would you like me to provide detailed analysis for a specific district or parameter?</p>
+                        </div>
+                        <div class="flex items-center mt-2 text-xs text-text-secondary">
+                            <span>INGRES AI</span>
+                            <span class="mx-2">•</span>
+                            <span>1 minute ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typing Indicator (Hidden by default) -->
+                <div class="flex items-start space-x-3 hidden" id="typing-indicator">
+                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="bg-primary-50 rounded-2xl rounded-tl-md p-4">
+                        <div class="flex space-x-1">
+                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse-subtle"></div>
+                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse-subtle" style="animation-delay: 0.2s;"></div>
+                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse-subtle" style="animation-delay: 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input Area -->
+        <div class="bg-surface rounded-b-2xl border border-border p-4 shadow-hydro">
+            <div class="flex items-end space-x-3">
+                <!-- File Upload Button -->
+                <button class="p-3 text-text-secondary hover:text-primary hover:bg-primary-50 rounded-xl transition-smooth flex-shrink-0" id="file-upload-btn" title="Upload Data File">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
+                    </svg>
+                </button>
+                <input type="file" id="file-upload" class="hidden" accept=".csv,.xlsx,.json" />
+
+                <!-- Message Input -->
+                <div class="flex-1 relative">
+                    <textarea id="message-input" placeholder="Ask about groundwater quality, data analysis, or management insights..." class="w-full px-4 py-3 pr-12 border border-border rounded-xl focus-hydro resize-none text-text-primary placeholder-text-secondary bg-background" rows="1" style="min-height: 48px; max-height: 120px;"></textarea>
+                    <!-- Voice Command Button -->
+                    <button id="voice-btn" class="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 text-text-secondary hover:text-primary hover:bg-primary-50 rounded-lg transition-smooth" title="Voice Command">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Send Button -->
+                <button id="send-btn" class="bg-primary hover:bg-primary-700 text-white p-3 rounded-xl transition-smooth flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Voice Recording Indicator -->
+            <div class="hidden mt-3 p-3 bg-error-50 border border-error-200 rounded-lg" id="voice-recording">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-error rounded-full animate-pulse-subtle"></div>
+                    <span class="text-sm text-error font-medium">Recording... Speak now</span>
+                    <button class="ml-auto text-error hover:text-error-700 transition-smooth" id="stop-recording">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="mt-3 flex flex-wrap gap-2">
+                <button class="px-3 py-1 bg-primary-50 text-primary text-sm rounded-full hover:bg-primary-100 transition-smooth quick-action" data-message="Show groundwater quality trends for the last 5 years">
+                    Quality Trends
+                </button>
+                <button class="px-3 py-1 bg-secondary-50 text-secondary text-sm rounded-full hover:bg-secondary-100 transition-smooth quick-action" data-message="Compare groundwater levels between different states">
+                    State Comparison
+                </button>
+                <button class="px-3 py-1 bg-accent-50 text-accent text-sm rounded-full hover:bg-accent-100 transition-smooth quick-action" data-message="Recommend water treatment solutions for high TDS areas">
+                    Treatment Solutions
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-8 flex-shrink-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Logo and Description -->
+                <div class="col-span-1">
+                    <div class="flex items-center mb-3">
+                        <svg class="h-6 w-6 text-primary-300" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M14 24c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="20" cy="28" r="2" fill="currentColor"/>
+                        </svg>
+                        <span class="ml-2 text-lg font-heading font-semibold">INGRES ChatBOT</span>
+                    </div>
+                    <p class="text-primary-200 text-sm leading-relaxed">
+                        Empowering groundwater management in India through intelligent AI-driven conversations.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-span-1">
+                    <h3 class="text-base font-heading font-semibold mb-3">Quick Links</h3>
+                    <ul class="space-y-1">
+                        <li><a href="project_overview.html" class="text-primary-200 hover:text-white transition-smooth text-sm">Project Overview</a></li>
+                        <li><a href="pseudocode_display.html" class="text-primary-200 hover:text-white transition-smooth text-sm">System Logic</a></li>
+                        <li><a href="team_profiles.html" class="text-primary-200 hover:text-white transition-smooth text-sm">Our Team</a></li>
+                        <li><a href="contact_form.html" class="text-primary-200 hover:text-white transition-smooth text-sm">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-span-1">
+                    <h3 class="text-base font-heading font-semibold mb-3">Connect With Us</h3>
+                    <div class="space-y-1">
+                        <p class="text-primary-200 text-sm">
+                            <span class="font-medium">Email:</span> info@ingres-chatbot.in
+                        </p>
+                        <p class="text-primary-200 text-sm">
+                            <span class="font-medium">Research:</span> groundwater@ingres.gov.in
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-6 pt-6 text-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 INGRES ChatBOT. All Rights Reserved. | Advancing Groundwater Management in India
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Chat functionality
+        const messageInput = document.getElementById('message-input');
+        const sendBtn = document.getElementById('send-btn');
+        const chatMessages = document.getElementById('chat-messages');
+        const voiceBtn = document.getElementById('voice-btn');
+        const voiceRecording = document.getElementById('voice-recording');
+        const typingIndicator = document.getElementById('typing-indicator');
+        const fileUploadBtn = document.getElementById('file-upload-btn');
+        const fileUpload = document.getElementById('file-upload');
+
+        // Enable/disable send button based on input
+        messageInput.addEventListener('input', function() {
+            const hasText = this.value.trim().length > 0;
+            sendBtn.disabled = !hasText;
+            
+            // Auto-resize textarea
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+
+        // Send message function
+        function sendMessage(message) {
+            if (!message.trim()) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            messageInput.value = '';
+            sendBtn.disabled = true;
+            messageInput.style.height = '48px';
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            // Simulate AI response after delay
+            setTimeout(() => {
+                hideTypingIndicator();
+                generateAIResponse(message);
+            }, 1500 + Math.random() * 1000);
+        }
+
+        // Add message to chat
+        function addMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="flex items-start space-x-3 justify-end">
+                        <div class="flex-1 max-w-xs sm:max-w-md lg:max-w-lg">
+                            <div class="bg-primary text-white rounded-2xl rounded-tr-md p-4">
+                                <p>${message}</p>
+                            </div>
+                            <div class="flex items-center justify-end mt-2 text-xs text-text-secondary">
+                                <span>You</span>
+                                <span class="mx-2">•</span>
+                                <span>${timestamp}</span>
+                            </div>
+                        </div>
+                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <div class="bg-primary-50 rounded-2xl rounded-tl-md p-4">
+                                <p class="text-text-primary">${message}</p>
+                            </div>
+                            <div class="flex items-center mt-2 text-xs text-text-secondary">
+                                <span>INGRES AI</span>
+                                <span class="mx-2">•</span>
+                                <span>${timestamp}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            chatMessages.querySelector('.space-y-6').appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Show typing indicator
+        function showTypingIndicator() {
+            typingIndicator.classList.remove('hidden');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Hide typing indicator
+        function hideTypingIndicator() {
+            typingIndicator.classList.add('hidden');
+        }
+
+        // Generate AI response
+        function generateAIResponse(userMessage) {
+            const responses = [
+                "Based on the latest INGRES data, I can provide detailed analysis for your query. Let me process the groundwater parameters for the specified region.",
+                "I've analyzed the groundwater quality data. The current readings show interesting patterns that require attention from water resource managers.",
+                "Thank you for your query. The INGRES database contains comprehensive information about this topic. Here's what the data reveals:",
+                "Excellent question! The groundwater assessment shows several key indicators that are important for sustainable water management in this area."
+            ];
+            
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            addMessage(randomResponse, 'ai');
+        }
+
+        // Send button click
+        sendBtn.addEventListener('click', function() {
+            sendMessage(messageInput.value);
+        });
+
+        // Enter key to send
+        messageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage(this.value);
+            }
+        });
+
+        // Voice recording functionality
+        let recognition;
+        let isRecording = false;
+
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-IN';
+
+            recognition.onstart = function() {
+                isRecording = true;
+                voiceRecording.classList.remove('hidden');
+                voiceBtn.classList.add('text-error', 'bg-error-50');
+            };
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[0][0].transcript;
+                messageInput.value = transcript;
+                messageInput.dispatchEvent(new Event('input'));
+            };
+
+            recognition.onend = function() {
+                isRecording = false;
+                voiceRecording.classList.add('hidden');
+                voiceBtn.classList.remove('text-error', 'bg-error-50');
+            };
+
+            recognition.onerror = function(event) {
+                console.error('Speech recognition error:', event.error);
+                isRecording = false;
+                voiceRecording.classList.add('hidden');
+                voiceBtn.classList.remove('text-error', 'bg-error-50');
+            };
+        }
+
+        // Voice button click
+        voiceBtn.addEventListener('click', function() {
+            if (!recognition) {
+                alert('Speech recognition is not supported in your browser.');
+                return;
+            }
+
+            if (isRecording) {
+                recognition.stop();
+            } else {
+                recognition.start();
+            }
+        });
+
+        // Stop recording button
+        document.getElementById('stop-recording').addEventListener('click', function() {
+            if (recognition && isRecording) {
+                recognition.stop();
+            }
+        });
+
+        // File upload functionality
+        fileUploadBtn.addEventListener('click', function() {
+            fileUpload.click();
+        });
+
+        fileUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const message = `📎 Uploaded file: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+                addMessage(message, 'user');
+                
+                // Simulate file processing
+                setTimeout(() => {
+                    const response = `I've received your data file "${file.name}". Processing the groundwater data now. This may take a few moments for comprehensive analysis.`;
+                    addMessage(response, 'ai');
+                }, 1000);
+            }
+        });
+
+        // Quick action buttons
+        document.querySelectorAll('.quick-action').forEach(button => {
+            button.addEventListener('click', function() {
+                const message = this.getAttribute('data-message');
+                messageInput.value = message;
+                messageInput.dispatchEvent(new Event('input'));
+                sendMessage(message);
+            });
+        });
+
+        // Export chat functionality
+        document.getElementById('export-chat').addEventListener('click', function() {
+            const messages = chatMessages.querySelectorAll('.space-y-6 > div');
+            let chatText = 'INGRES ChatBOT Conversation Export\n';
+            chatText += '=====================================\n\n';
+            
+            messages.forEach(message => {
+                const text = message.textContent.trim();
+                if (text && !text.includes('Recording...')) {
+                    chatText += text + '\n\n';
+                }
+            });
+            
+            const blob = new Blob([chatText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ingres-chat-${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // Clear chat functionality
+        document.getElementById('clear-chat').addEventListener('click', function() {
+            if (confirm('Are you sure you want to clear the chat history?')) {
+                const messagesContainer = chatMessages.querySelector('.space-y-6');
+                const welcomeMessage = messagesContainer.firstElementChild;
+                messagesContainer.innerHTML = '';
+                messagesContainer.appendChild(welcomeMessage);
+            }
+        });
+
+        // Auto-scroll to bottom on new messages
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            });
+        });
+
+        observer.observe(chatMessages.querySelector('.space-y-6'), {
+            childList: true
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
